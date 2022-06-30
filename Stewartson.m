@@ -2,7 +2,7 @@
 % Inputs:
 % Re - Reynolds Number (sqrt) 
 
-function IMPRegion(Re)
+function Stewartson(Re)
     %% Initialise
     str1 = fprintf('Initialising...\n');
     %  set step size
@@ -40,8 +40,8 @@ function IMPRegion(Re)
 
     %% POST PROCESS
     str2 = fprintf('Post-Processing...\n');
-    % load Boundary Layer flow 
-    filename = '../Flows/Stew_BL.mat';
+    % load Boundary Layer flow
+    filename = 'BL.mat';
     load(filename,'VelBL','eta','theta'); UB = VelBL{1}; Eta = 0:h:30; 
     % Determine U inlet
     Tm = -10/Re + pi/2; [~,i] = min(abs(theta-Tm));
@@ -78,7 +78,7 @@ end
 function [Pxx,Psit] = BC(h,Re)
     hi = 1/h;
     % load Boundary Layer flow 
-    filename = '../Flows/Stew_BL.mat';
+    filename = 'BL.mat';
     load(filename,'VelBL','eta','theta'); UB = VelBL{1}; Eta = 0:h:30; 
     % Determine betamax in theta 
     Tm = -10/Re + pi/2; [~,i] = min(abs(theta-Tm));
