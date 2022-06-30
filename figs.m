@@ -4,7 +4,7 @@ clear all; clc; close all
 
 %% Load flow
 Re = 100;
-IMPfile = ['../Flows/IMP/Stew_IMP_Re=',num2str(Re),'.mat'];
+IMPfile = ['Stew_Re=',num2str(Re),'.mat'];
 load(IMPfile); U = VelIMP{1}; V = VelIMP{2}; W = VelIMP{3}; Psi = VelIMP{4}; Omega = VelIMP{5}; P = VelIMP{6};
 Nbeta = length(beta); Neta = length(eta);
 
