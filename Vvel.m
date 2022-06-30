@@ -31,7 +31,7 @@ end
 %% DEFINE BOUNDARY CONDITIONS
 function [Vt,Vl] = VBCs(h,Re)
     % load Boundary Layer flow 
-    filename = '../Flows/Stew_BL.mat';
+    filename = 'BL.mat';
     load(filename,'VelBL','eta','theta'); VB = VelBL{2}; Eta = eta; eta = 0:h:30; 
     % Determine betamax in theta
     Tm = -10/Re + pi/2; [~,i] = min(abs(theta-Tm));
