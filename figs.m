@@ -6,7 +6,6 @@ clear all; clc; close all
 Re = 100;
 IMPfile = ['Stew_Re=',num2str(Re),'.mat'];
 load(IMPfile); U = VelIMP{1}; V = VelIMP{2}; W = VelIMP{3}; Psi = VelIMP{4}; Omega = VelIMP{5}; P = VelIMP{6};
-Nbeta = length(beta); Neta = length(eta);
 
 %% Plot U-W Velocity Magnitude
 figure(1); TT = ['Velocity Field: $\sqrt{R_e} =$ ',num2str(Re)];
@@ -21,7 +20,7 @@ set(gcf, 'Position',  [200, 200, 1200, 400])
 
 %% Plot Stream Function
 figure(2); TT = ['$\psi(\eta,\beta)$ Contour Plot: $\sqrt{R_e} =$ ',num2str(Re)];
-contourf(eta,beta,Psi(2:Nbeta+1,2:Neta+1),10,'LineColor','none' ); 
+contourf(eta,beta,Psi,10,'LineColor','none' ); 
 colorbar; caxis([0,0.8]); colormap('jet');
 xlabel('\eta','fontsize',12); ylabel('-\beta','rotation',0,'fontsize',12); title(TT,'interpreter','latex','fontsize',12);
 axis equal; set(gcf, 'Position',  [200, 200, 1200, 400])
@@ -29,7 +28,7 @@ axis equal; set(gcf, 'Position',  [200, 200, 1200, 400])
 
 %% Plot Vorticity
 figure(3); T = ['$|\omega(\eta,\beta)|$ Contour Plot: $\sqrt{R_e} =$ ',num2str(Re)];
-contourf(eta,beta,abs(Omega(2:Nbeta+1,2:Neta+1)),logspace(-8,0,40),'LineColor','none'); 
+contourf(eta,beta,abs(Omega),logspace(-8,0,40),'LineColor','none'); 
 colorbar; colormap('jet');
 xlabel('\eta','fontsize',12); ylabel('-\beta','fontsize',12,'rotation',0); title(T,'interpreter','latex','fontsize',12);
 axis equal; set(gcf, 'Position',  [200, 200, 1200, 400])
