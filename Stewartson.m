@@ -66,7 +66,7 @@ function Stewartson(Re)
 
     % save data to file
     VelIMP{1} = U; VelIMP{2} = V; VelIMP{3} = W;
-    VelIMP{4} = Psi; VelIMP{5} = Omega; VelIMP{6} = P;
+    VelIMP{4} = Psi(2:Nbeta+1,2:Neta+1); VelIMP{5} = Omega(2:Nbeta+1,2:Neta+1); VelIMP{6} = P;
     filename = ['Stew_Re=',num2str(Re),'.mat'];
     save(filename, 'VelIMP', 'eta', 'beta', 'etam', 'betam')
     fprintf(repmat('\b',1,str2)); str2 = fprintf('Flow saved in %s\n', filename); pause(1)
