@@ -5,7 +5,7 @@ function P = Pressure(U,W,Re,h)
     [Nbeta,Neta] = size(U); hi = 1/h;
     
     % load Pressure inlet
-    filename = '../Flows/Stew_BL.mat';
+    filename = 'BL.mat';
     load(filename,'VelBL','eta','theta'); PB = VelBL{4}; Eta = eta; eta = 0:h:30;
     % Determine betamax in theta
     Tm = -10/Re + pi/2; [~,i] = min(abs(theta-Tm));
