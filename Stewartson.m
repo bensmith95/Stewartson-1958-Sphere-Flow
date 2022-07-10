@@ -61,14 +61,13 @@ function Stewartson(Re)
     [V,~] = Vvel(W,U,Re,h); 
     
     % Solve Poisson Equation for Pressure
-    etam = (eta(1:end-1)+eta(2:end))*0.5; betam = (beta(1:end-1)+beta(2:end))*0.5;
-    P = Pressure(W,U,Re,h); 
+    P = Pressure(U,W,Re,h); 
 
     % save data to file
     VelIMP{1} = U; VelIMP{2} = V; VelIMP{3} = W;
     VelIMP{4} = Psi(2:Nbeta+1,2:Neta+1); VelIMP{5} = Omega(2:Nbeta+1,2:Neta+1); VelIMP{6} = P;
     filename = ['Stew_Re=',num2str(Re),'.mat'];
-    save(filename, 'VelIMP', 'eta', 'beta', 'etam', 'betam')
+    save(filename, 'VelIMP', 'eta', 'beta')
     fprintf(repmat('\b',1,str2)); str2 = fprintf('Flow saved in %s\n', filename); pause(1)
 
     fprintf(repmat('\b',1,str2)); fprintf(repmat('\b',1,str1));
